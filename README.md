@@ -11,7 +11,7 @@
 - Autora del proyecto: María Corcobado Muñoz
 - Tutor del proyecto: Miguel Ángel Domínguez Espino
 - Fecha de presentación: junio 2025.
-- Repositorio del proyecto: [Repositorio](https://github.com/suarezfigueroa/2425_TFC_MariaCorcobado.git)
+- Repositorio del proyecto: [Repositorio](https://github.com/mcorcobadom/AMBULARTE.git)
 - Logotipo del proyecto: 
 
 ![Logo del proyecto "AmbulArte"](./images/Logos/logo2.png)
@@ -707,11 +707,11 @@ db-init del proyecto. Primero importa el archivo de estructura y luego el de dat
 #### 1. Descargar el proyecto
 ```bash
 # Opción A: Clonar repositorio
-git clone https://github.com/suarezfigueroa/2425_TFC_MariaCorcobado.git
-cd 2425_TFC_MariaCorcobado/AMBULARTE
+git clone https://github.com/mcorcobadom/AMBULARTE.git
+cd AMBULARTE
 
 # Opción B: Descargar ZIP
-# 1. Ir a https://github.com/suarezfigueroa/2425_TFC_MariaCorcobado
+# 1. Ir a https://github.com/mcorcobadom/AMBULARTE.git
 # 2. Clic en "Code" > "Download ZIP"
 # 3. Extraer en carpeta local
 # 4. Abrir terminal en carpeta AMBULARTE/
