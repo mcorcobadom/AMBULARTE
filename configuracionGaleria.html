@@ -1,0 +1,120 @@
+<script src="js/scriptConfiguracionGaleria.js"></script>
+
+<!--Cabecera con imagen de fondo-->
+<div id="cabeceraConfiguracionGaleria"
+    class="cabeceraSecciones d-flex align-items-center justify-content-center text-center">
+    <h1>Configuración</h1>
+</div>
+
+<div id="contenidoConfiguracion" class="container mt-5 mb-5 bg-light rounded">
+    <div class="d-flex justify-content-between py-3 px-3">
+        <h3 class="mb-4">Tus exposiciones</h3>
+        <button id="addExposicion" class="btnAnadir mt-4 mb-4">Añadir nueva exposición</button>
+    </div>
+    <div id="listaExposiciones" class="row g-4">
+        <!-- Aquí se generarán dinámicamente las exposiciones -->
+    </div>
+</div>
+
+<!-- Modal para modificar una exposición -->
+<div class="modal fade" id="modalModificarExposicion" tabindex="-1" aria-labelledby="modalModificarExposicionLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="d-flex flex-row flex-wrap justify-content-center align-content-center ms-5">
+                    <img src="images/Logos/ambularte-favicon.svg" class="d-inline-block p-0 m-auto" alt="logo Ambularte"
+                        height="32">
+                    <h5 class="modal-title" id="modalModificarExposicionLabel">Modificar Exposición</h5>
+                </div>                
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formModificarExposicion">
+                    <input type="hidden" id="idExposicionModificar">
+                    <div class="mb-3">
+                        <label for="nombreExposicionModificar" class="form-label">Nombre de la Exposición</label>
+                        <input type="text" id="nombreExposicionModificar" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaInicioModificar" class="form-label">Fecha de Inicio</label>
+                        <input type="date" id="fechaInicioModificar" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaFinModificar" class="form-label">Fecha de Fin</label>
+                        <input type="date" id="fechaFinModificar" class="form-control" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-outline-secondary text-black" id="confirmarModificarExposicion">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalNuevaExposicion" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nueva Exposición</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formNuevaExposicion">
+                    <div class="mb-3">
+                        <label for="nombreExposicion" class="form-label">Nombre de la Exposición</label>
+                        <input type="text" class="form-control" id="nombreExposicion" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="zonaExposicion" class="form-label">Zona</label>
+                        <input type="text" class="form-control" id="zonaExposicion" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaInicio" class="form-label">Fecha de Inicio</label>
+                        <input type="date" class="form-control" id="fechaInicio" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fechaFin" class="form-label">Fecha de Fin</label>
+                        <input type="date" class="form-control" id="fechaFin" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="obrasExposicion" class="form-label">Obras</label>
+                        <div class="listaObras">
+                            <!-- Aquí se cargarán las obras disponibles -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="guardarExposicion">Guardar Exposición</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para seleccionar obras -->
+<div class="modal fade" id="modalSeleccionarObras" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="d-flex flex-row flex-wrap justify-content-center align-content-center ms-5">
+                    <img src="images/Logos/ambularte-favicon.svg" class="d-inline-block p-0 m-auto" alt="logo Ambularte"
+                        height="32">
+                    <h5 class="modal-title">Seleccionar Obras</h5>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="listaObras">
+                    <!-- Aquí se cargarán las obras disponibles -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary text-black" id="confirmarSeleccionObras">Añadir Obras</button>
+            </div>
+        </div>
+    </div>
+</div>

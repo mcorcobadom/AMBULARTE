@@ -1,0 +1,67 @@
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: apache
+    restart: always
+    ports:
+      - "8080:80" 
+    volumes:
+      - .:/var/www/html
+    networks:
+      - ambularte_red
+    environment:
+      - DB_HOST=db
+      - DB_NAME=AmbulArte
+      - DB_USER=root
+      - DB_PASSWORD=1234
+    depends_on:
+      - db
+    command: 
+      - bash
+      - -c
+      - |
+        chown -R www-data:www-data /var/www/html &&
+        find /var/www/html -type d -exec chmod 755 {} \; &&
+        find /var/www/html -type f -exec chmod 644 {} \; &&
+        /start.sh
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: AmbulArte
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db-init:/docker-entrypoint-initdb.d
+    ports:
+      - "3307:3306" 
+    networks:
+      - ambularte_red
+    # ← Agregar comando para compatibilidad
+    command: --default-authentication-plugin=mysql_native_password
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8081:80" 
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    networks:
+      - ambularte_red
+    depends_on:
+      - db
+
+networks:
+  ambularte_red:
+    driver: bridge
+
+volumes:
+  db_data:

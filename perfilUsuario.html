@@ -1,0 +1,121 @@
+<script src="js/scriptPerfilUsuario.js"></script>
+
+<!-- Cabecera con imagen y título superpuesto -->
+<div class="fondoPerfilUsuario position-relative d-flex justify-content-center align-items-center">
+    
+<div class="container contenedorFormularioPerfil position-relative z-2 rounded py-5">
+    <h2 class="tituloPerfilUsuario text-center text-white mb-5">Modificar perfil</h2>
+    <!-- Formulario -->
+    <form id="formPerfilUsuario" enctype="multipart/form-data">
+        <div class="row g-4">
+            <!-- Nombre -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+                    <label for="nombre">Nombre</label>
+                </div>
+            </div>
+
+            <!-- Apellidos -->
+            <div class="col-md-6 campoArtista campoColeccionista">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+                    <label for="apellidos">Apellidos</label>
+                </div>
+            </div>
+
+            <!-- Género -->
+            <div class="col-md-6 campoArtista campoColeccionista">
+                <div class="form-floating">
+                    <select class="form-select" id="genero" name="genero" required>
+                        <option value="" selected disabled>Selecciona una opción:</option>
+                        <option value="hombre">Hombre</option>
+                        <option value="mujer">Mujer</option>
+                        <option value="no binario">No binario</option>
+                        <option value="prefiero no decirlo">Prefiero no decirlo</option>
+                    </select>
+                    <label for="genero">Género</label>
+                </div>
+            </div>
+
+            <!-- Fecha de nacimiento -->
+            <div class="col-md-6 campoArtista">
+                <div class="form-floating">
+                    <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" max="<?php echo date('Y-m-d'); ?>" required>
+                    <label for="fechaNacimiento">Fecha de nacimiento</label>
+                </div>
+            </div>
+
+            <!-- Dirección -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Dirección" required>
+                    <label for="direccion">Dirección</label>
+                </div>
+            </div>
+
+            <!-- Ciudad -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad" required>
+                    <label for="ciudad">Ciudad</label>
+                </div>
+            </div>
+
+            <!-- Código postal -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="codigoPostal" name="codigoPostal" placeholder="Código Postal" required>
+                    <label for="codigoPostal">Código Postal</label>
+                </div>
+            </div>
+
+            <!-- País -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="pais" name="pais" placeholder="País" required>
+                    <label for="pais">País</label>
+                </div>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
+                    <label for="telefono">Teléfono</label>
+                </div>
+            </div>
+
+            <!-- Metros cuadrados -->
+            <div class="col-md-6 campoGaleria">
+                <div class="form-floating">
+                    <input type="number" class="form-control" id="metrosCuadrados" name="metrosCuadrados" placeholder="Metros cuadrados" required>
+                    <label for="metrosCuadrados">Metros cuadrados</label>
+                </div>
+            </div>
+
+            <!-- Imagen -->
+            <div class="col-md-12">
+                <label for="imagen" class="form-label text-white">Seleccionar imagen de perfil</label>
+                <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
+            </div>
+
+            <!--Visualizar imagen de perfil-->
+            <div class="col-md-4 text-center text-md-start">
+                <h5 class="text-light mb-3">Imagen de perfil actual</h5>
+                <img class="bg-light rounded p-3 mt-3 mb-3" id="vistaPreviaImagen" src="" alt="Imagen actual">
+            </div>
+
+            <!-- Botón -->
+            <div class="col-12 text-center text-md-start mt-3">
+                <button class="btnGuardar" type="submit">Guardar</button>
+            </div>
+        </div>
+    </form>
+    <!-- Alerta de error -->
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="alert alert-light errorPerfil visually-hidden text-center mt-3" role="alert"></div>
+        </div>
+    </div>
+</div>

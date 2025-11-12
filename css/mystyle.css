@@ -1,0 +1,985 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&display=swap");
+
+:root {
+  /*Tipografía*/
+  --font-base: "Lora", serif;
+  --font-heading: "Playfair Display", serif;
+
+  --step--2: clamp(0.6944rem, 0.6593rem + 0.1759vw, 0.8rem);
+  --step--1: clamp(0.8333rem, 0.7778rem + 0.2778vw, 1rem);
+  --step-0: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
+  --step-1: clamp(1.2rem, 1.0792rem + 0.6042vw, 1.5625rem);
+  --step-2: clamp(1.44rem, 1.269rem + 0.8552vw, 1.9531rem);
+  --step-3: clamp(1.728rem, 1.4902rem + 1.189vw, 2.4414rem);
+  --step-4: clamp(2.0736rem, 1.7475rem + 1.6303vw, 3.0518rem);
+  --step-5: clamp(2.4883rem, 2.0462rem + 2.2106vw, 3.8147rem);
+
+  --space-3xs: clamp(0.25rem, 0.24rem + 0.07vw, 0.375rem);
+  --space-2xs: clamp(0.5rem, 0.47rem + 0.14vw, 0.75rem);
+  --space-xs: clamp(0.75rem, 0.71rem + 0.21vw, 1.125rem);
+  --space-s: clamp(1rem, 0.95rem + 0.29vw, 1.5rem);
+  --space-m: clamp(1.5rem, 1.42rem + 0.43vw, 2.25rem);
+  --space-l: clamp(2rem, 1.9rem + 0.57vw, 3rem);
+  --space-xl: clamp(3rem, 2.85rem + 0.86vw, 4.5rem);
+  --space-2xl: clamp(4rem, 3.8rem + 1.14vw, 6rem);
+
+  /*Colores*/
+
+  /*Color de fondo*/
+  --bg-body: #030404;
+  --bg-button: #d76734;
+  --bg-button-hover: #90b1ab;
+
+  /*Color letra*/
+  --color-text: #030404;
+  --color-button: #f5f5f5;
+  --color-button-hover: #141a1a;
+  --color-enlaces: #e49876;
+  --color-enlaces-hover: #253131;
+
+  /*Borde*/
+  --border-input: #dd8055;
+  --border-radius-button: 10px;
+}
+
+/*Estilos generales*/
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--bg-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-size: var(--step-5);
+}
+
+h2 {
+  font-size: var(--step-4);
+}
+
+h3 {
+  font-size: var(--step-3);
+}
+
+h4 {
+  font-size: var(--step-2);
+}
+
+h5 {
+  font-size: var(--step-1);
+}
+
+p {
+  font-size: var(--step-0);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-enlaces);
+}
+
+a:hover {
+  color: var(--color-enlaces-hover);
+}
+
+button {
+  font-size: var(--step-0);
+  background-color: var(--bg-button);
+  color: var(--color-button);
+  padding: var(--space-2xs);
+  border: none;
+  border-radius: var(--border-radius-button);
+}
+
+button:hover {
+  background-color: var(--bg-button-hover);
+  color: var(--color-button-hover);
+}
+
+input:focus,
+select:focus {
+  outline: none !important;
+  border-color: var(--border-input) !important;
+  box-shadow: none !important;
+}
+
+/*Imagen de perfil*/
+.imgPerfil {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+}
+
+#badgeCarrito {
+  background-color: var(--bg-button-hover);
+  color: var(--color-text);
+  font-size: 0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Botón check de los formularios*/
+.form-check-input:checked {
+  background-color: #2d3c3c;
+  border-color: var(--border-input);
+}
+
+/*Sección dinámica*/
+#seccionDinamica {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/*Carousel principal*/
+#carouselExampleCaptions {
+  height: 85vh;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/*Oscurecer la imagen de fondo*/
+.carousel-item img {
+  filter: brightness(50%); /* Reduce el brillo de la imagen */
+}
+
+/*Sombra negra para el texto*/
+.carousel-caption h1,
+.carousel-caption h2,
+.carousel-caption p {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra negra */
+}
+
+/* Fondo y texto del offcanvas menú de Secciones */
+.offcanvas {
+  background-color: var(--bg-body);
+  color: var(--color-text);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Botón de cierre */
+.offcanvas .btn-close {
+  color: var(--color-button);
+  font-size: var(--step-1);
+  border-radius: 20%;
+  padding: var(--space-xs);
+}
+
+.offcanvas .btn-close:hover {
+  background-color: var(--bg-button-hover);
+  color: var(--color-button-hover);
+}
+
+/* Encabezado del offcanvas */
+.offcanvas-header {
+  color: var(--color-button);
+  padding: var(--space-s);
+  border-bottom: 1px solid var(--border-input);
+  font-weight: bold;
+}
+
+/* Enlaces del menú */
+.offcanvas .nav-link {
+  color: white;
+  font-size: var(--step-1);
+  font-weight: 500;
+  padding: var(--space-xs);
+  border-bottom: 1px solid var(--border-input);
+}
+
+.offcanvas .nav-link:hover {
+  color: var(--bg-button-hover);
+  font-size: calc(var(--step-1) * 1.2);
+  transition: font-size 0.3s ease-in-out;
+}
+
+/*Barra de navegación*/
+
+#navSecciones {
+  position: relative;
+  z-index: 1000;
+  height: 80px;
+}
+
+#navSecciones .nav-link {
+  font-size: var(--step-0);
+  font-weight: medium;
+}
+
+#navSecciones .nav-link:hover {
+  font-size: calc(var(--step-0) * 1.2);
+  transition: font-size 0.3s ease-in-out;
+}
+
+.logueado .dropdown-menu {
+  position: absolute;
+  z-index: 1080;
+}
+
+/* Cambiar el color de fondo de todo el dropdown */
+.dropdown-menu .dropdown-item:hover {
+  background-color: var(--bg-button-hover);
+  color: var(--color-text);
+}
+
+/*Perfil Usuario*/
+
+.fondoPerfilUsuario {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.fondoPerfilUsuario::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/Fondos/formularioPerfil.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.7);
+  z-index: 0;
+}
+
+.tituloPerfilUsuario {
+  font-size: var(--step-3);
+  font-weight: bold;
+}
+
+.contenedorFormularioPerfil {
+  color: var(--color-text);
+}
+
+#vistaPreviaImagen {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+/*Navegador de secciones*/
+
+#cabeceraArtistas {
+  background-image: url("../images/Cabeceras/cabeceraArtistas.jpg");
+}
+
+#cabeceraDibujo {
+  background-image: url("../images/Cabeceras/cabeceraDibujo.jpg");
+}
+
+#cabeceraPintura {
+  background-image: url("../images/Cabeceras/cabeceraPintura.jpg");
+}
+
+#cabeceraFotografia {
+  background-image: url("../images/Cabeceras/cabeceraFotografia.jpg");
+}
+
+#cabeceraEscultura {
+  background-image: url("../images/Cabeceras/cabeceraEscultura.jpg");
+}
+
+#cabeceraExposiciones {
+  background-image: url("../images/Cabeceras/cabeceraExposiciones.jpg");
+}
+
+#cabeceraSobreNosotros {
+  background-image: url("../images/Cabeceras/cabeceraAbout1.jpg");
+}
+
+#cabeceraConfiguracionArtista {
+  background-image: url("../images/Fondos/configuracionArtista.jpg");
+  height: 20vh;
+}
+
+#cabeceraConfiguracionColeccionista {
+  background-image: url("../images/Fondos/configuracionColeccionista.jpg");
+  height: 20vh;
+}
+
+#cabeceraConfiguracionAdmin {
+  background-image: url("../images/Fondos/configuracionAdmin.jpg");
+  height: 20vh;
+}
+
+#cabeceraConfiguracionGaleria {
+  background-image: url("../images/Fondos/configuracionGaleria.jpg");
+  height: 20vh;
+}
+
+.cabeceraSecciones {
+  position: relative;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+  height: 550px;
+}
+
+.cabeceraSecciones::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: inherit; /* Usar la misma imagen de fondo */
+  background-size: inherit;
+  background-position: inherit;
+  background-repeat: inherit;
+  filter: brightness(70%); /* Oscurecer solo la imagen */
+  z-index: 1; /* Colocar detrás del texto */
+}
+
+.cabeceraSecciones h1 {
+  position: relative;
+  z-index: 2; /* Colocar el texto por encima de la imagen */
+}
+
+/* Estilo para las tarjetas */
+.cardArtistas {
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.imgObra {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+  transition: transform 0.3s ease-out;
+}
+
+.imgObra:hover {
+  transform: scale(1.05);
+}
+
+/*Contenedor Galerías*/
+.contenedorGaleria,
+.contenedorAbout {
+  background-color: var(--bg-button-hover);
+}
+
+/*Cambiar el color de los iconos*/
+.colorIcono {
+  color: var(--bg-button);
+}
+
+/*Card Asistentes*/
+.profile-card-5 {
+  margin-top: 20px;
+}
+
+.profile-card-5 .btn {
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 7px 20px;
+}
+
+.profile-card-5 .card-img-block {
+  width: 91%;
+  margin: 0 auto;
+  position: relative;
+  top: -20px;
+}
+
+.profile-card-5 .card-img-block img {
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+}
+
+.profile-card-5 h5 {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.profile-card-5 p {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+/*Offcanvas Cesta de la compra*/
+#offcanvasRight .card {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+#offcanvasRight .card img {
+  max-height: 100px;
+  object-fit: cover;
+}
+
+#offcanvasRight .card-body {
+  padding: 5px;
+}
+
+#offcanvasRight .btn {
+  font-size: 0.8rem;
+}
+
+#contadorCesta {
+  font-size: 0.75rem;
+  padding: 0.25em 0.5em;
+  color: var(--bg-body);
+  background-color: var(--border-input);
+  border-radius: 50%;
+}
+
+/*CATEGORÍAS Y TIPOS DE OBRA*/
+/* Estilo para la card de categoría y tipos de obras*/
+.categoria-card {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación */
+  cursor: pointer; /* Mostrar el cursor como botón */
+}
+
+/* Efecto de hover */
+.categoria-card:hover {
+  transform: scale(1.05); /* Aumentar ligeramente el tamaño */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Agregar sombra */
+}
+
+/* Overlay para el título */
+.categoria-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  opacity: 1; /* Mostrar siempre */
+  display: flex; /* Usar flexbox para centrar el contenido */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  transition: opacity 0.3s ease; /* Animación de aparición */
+}
+
+/* Mostrar el overlay al pasar el mouse */
+.categoria-card:hover .categoria-overlay {
+  opacity: 1; /* Mostrar el overlay */
+}
+
+/* Estilo para el título */
+.categoria-titulo {
+  font-size: 2.5rem; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  color: white; /* Color del texto */
+  text-align: center; /* Centrar el texto */
+}
+
+/*Sección Conócenos*/
+/* Estilos de la sección */
+.seccionConocenos {
+  position: relative;
+  background-image: url("../images/Fondos/conocenos.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 30vh;
+  color: white;
+  overflow: hidden;
+}
+
+/* Overlay oscuro encima de la imagen */
+.seccionConocenos .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Oscurecer la imagen */
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Contenido centrado sobre el overlay */
+.seccionConocenos .content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón personalizado (opcional) */
+.seccionConocenos .btn {
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.seccionConocenos .btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/*Botones Configuración*/
+
+/*Botón Modificar*/
+.btnMod {
+  background-color: #fce39e;
+  color: black;
+}
+
+/*Mensajes de error alert y botones de eliminar*/
+.alertError,
+.alertaError,
+.btnDel {
+  background-color: #e49876;
+  color: black;
+}
+
+/*Botón reactivar*/
+.btnReactiv,
+.btnAnadir {
+  background-color: #bed1ce;
+  color: black;
+}
+
+/*Botón añadir*/
+.btnAnadir {
+  font-size: var(--step-0);
+  background-color: var(--bg-button-hover);
+  color: var(--color-button-hover);
+  padding: var(--space-2xs);
+  border: none;
+  border-radius: var(--border-radius-button);
+}
+
+.btnAnadir:hover {
+  background-color: var(--bg-button);
+  color: var(--color-button);
+}
+
+/*Configuración Galería Obras*/
+.listaObras {
+  max-height: 420px; /* ajusta según modal */
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.obra-thumb {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+}
+
+.obra-card {
+  cursor: pointer;
+  transition: box-shadow 0.12s ease;
+}
+.obra-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/*Tabla auditoría*/
+
+.audit-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.audit-list li {
+  padding: 2px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.04);
+}
+.audit-short {
+  font-size: 0.9rem;
+  color: #444;
+}
+.audit-full {
+  margin-top: 0.5rem;
+  background: #f8f9fa;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+.audit-full pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 767.98px) {
+  /* Pantallas móviles */
+
+  .navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body {
+    padding-top: 70px;
+  }
+
+  /*Cabecera secciones*/
+  .cabeceraSecciones {
+    height: 200px;
+  }
+
+  .cabeceraSecciones .descripcion {
+    font-size: var(--step-0); /* Reducir el tamaño del texto */
+  }
+}
+
+/* Ajustes para  pantallas medianas y más grandes */
+@media (min-width: 768px) {
+  #navPrincipal {
+    height: 80px;
+    top: 0;
+  }
+
+  #navSecciones {
+    top: 80px;
+  }
+
+  body {
+    padding-top: 140px;
+  }
+}
+
+/* Ajustes adicionales para móvil: reducir tipografías e imágenes para mejor legibilidad y proporciones */
+@media (max-width: 576px) {
+  /* Base más pequeña para textos */
+  body {
+    font-size: 14px;
+  }
+
+  /* Cabeceras y hero más compactos */
+  .cabeceraSecciones {
+    height: 160px;
+  }
+  .cabeceraSecciones h1 {
+    font-size: var(--step-2);
+  }
+
+  /* Carousel menos alto en móvil para evitar imágenes enormes */
+  #carouselExampleCaptions {
+    height: 55vh;
+  }
+  .carousel-item img {
+    height: 55vh;
+  }
+
+  /* Tarjetas y galerías: imágenes más pequeñas y menos alto */
+  .imgObra {
+    height: 160px;
+  }
+  .categoria-card {
+    height: 180px;
+  }
+  .categoria-titulo {
+    font-size: clamp(1rem, 4.5vw, 1.25rem);
+  }
+
+  /* Cards de perfil: imagen más compacta */
+  .profile-card-5 .card-img-block {
+    top: -10px;
+  }
+  .profile-card-5 .card-img-block img {
+    max-height: 120px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .profile-card-5 h5 {
+    font-size: var(--step-0);
+  }
+  .profile-card-5 p {
+    font-size: var(--step--1);
+  }
+
+  /* Offcanvas (menú móvil): texto más pequeño y espaciado reducido */
+  .offcanvas .nav-link {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.6rem;
+  }
+
+  /* Lista de obras en modal */
+  .listaObras {
+    max-height: 300px;
+  }
+  .obra-thumb {
+    width: 72px;
+    height: 72px;
+  }
+
+  /* Auditoría: fuente más compacta para las tablas */
+  #tablaAuditoria td {
+    font-size: 0.85rem;
+  }
+
+  /* Ajuste general de espacios */
+  :root {
+    --space-xs: 0.5rem;
+    --space-s: 0.75rem;
+  }
+
+  /* Permitir scroll dentro de la sección dinámica en móvil (evita clipping) */
+  #seccionDinamica {
+    overflow: visible;
+  }
+
+  /* Hacer que los contenedores .table-responsive sean desplazables en vertical y horizontal en móvil */
+  .table-responsive {
+    max-height: 55vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Asegurar que el enlace para mostrar detalles sea fácilmente pulsable */
+  .audit-summary a.audit-toggle {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.03);
+  }
+
+  /* Elevar el detalle para que no quede bajo otros elementos y sea interactivo */
+  .audit-full {
+    position: relative;
+    z-index: 5;
+  }
+}
+
+/* Ajustes adicionales: reducir imágenes y títulos de obras en páginas de pintura/escultura/dibujo en móvil */
+@media (max-width: 576px) {
+  /* Obras listadas: imagen más compacta */
+  .imgObra {
+    height: 120px !important;
+  }
+
+  /* Tarjetas de categoría/colecciones */
+  .categoria-card {
+    height: 140px !important;
+  }
+  .categoria-overlay {
+    padding: 0.4rem;
+  }
+  .categoria-titulo {
+    font-size: clamp(0.85rem, 3.6vw, 1.05rem) !important;
+  }
+
+  /* Títulos de obra y metadatos dentro de cards */
+  .card .card-title {
+    font-size: 0.95rem !important;
+  }
+  .card .card-text {
+    font-size: 0.8rem !important;
+  }
+
+  /* Miniaturas de listas (ej. selección de obras) */
+  .obra-thumb {
+    width: 64px !important;
+    height: 64px !important;
+  }
+
+  /* Detalle de artista/obra: reducir tamaños de cabecera y subtítulos */
+  .profile-card-5 h5 {
+    font-size: 1rem;
+  }
+  .profile-card-5 p {
+    font-size: 0.85rem;
+  }
+
+  /* Si existen galerías de mosaico: reducir gap y altura de items */
+  .masonry .grid-item img,
+  .masonry .grid-item .imgObra {
+    height: 110px;
+  }
+}
+
+/* Reducir tamaño de botones, inputs y textos de acción en móvil */
+@media (max-width: 576px) {
+  /* Botones generales */
+  .btn,
+  button,
+  .btnAnadir,
+  .btnMod,
+  .btnDel,
+  .btnReactiv,
+  .profile-card-5 .btn {
+    font-size: 0.9rem !important;
+    padding: 0.32rem 0.6rem !important;
+    border-radius: 8px !important;
+  }
+
+  /* Iconos dentro de botones (ajustar tamaño para que no desborden) */
+  .btn i.bi,
+  button i.bi {
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+
+  /* Inputs y selects más compactos */
+  input.form-control,
+  textarea.form-control,
+  select.form-control {
+    font-size: 0.95rem;
+    padding: 0.38rem 0.55rem;
+  }
+
+  /* Checkboxes y radios táctiles pero compactos */
+  .form-check-input {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  /* Badges y contadores más pequeños */
+  #badgeCarrito {
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 0.65rem;
+  }
+
+  /* Imagen de perfil más pequeña */
+  .imgPerfil {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  /* Offcanvas: reducir padding del header y tamaño del botón cerrar */
+  .offcanvas-header {
+    padding: 0.5rem 0.75rem;
+  }
+  .offcanvas .btn-close {
+    font-size: 1rem;
+    padding: 0.25rem;
+  }
+
+  /* Botones en offcanvas y paneles laterales compactos */
+  #offcanvasRight .btn {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  /* Tarjetas: reducir padding de los botones internos */
+  .profile-card-5 .btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  /* Formularios en modal: botones de acción más pequeños */
+  .modal .btn {
+    font-size: 0.95rem;
+    padding: 0.36rem 0.6rem;
+  }
+}
+
+/* Reducir tamaños de títulos y descripciones en móvil para evitar que queden demasiado grandes */
+@media (max-width: 576px) {
+  /* Encabezados generales dentro de la sección dinámica */
+  #seccionDinamica h1 {
+    font-size: clamp(1.125rem, 4vw, 1.5rem);
+    line-height: 1.12;
+  }
+  #seccionDinamica h2 {
+    font-size: clamp(1rem, 3.5vw, 1.25rem);
+    line-height: 1.18;
+  }
+  #seccionDinamica h3 {
+    font-size: clamp(0.95rem, 3vw, 1.05rem);
+    line-height: 1.22;
+  }
+  #seccionDinamica h4 {
+    font-size: clamp(0.9rem, 2.7vw, 1rem);
+    line-height: 1.25;
+  }
+
+  /* Cabeceras hero/section descriptions */
+  .cabeceraSecciones .descripcion,
+  .cabeceraSecciones p {
+    font-size: clamp(0.85rem, 3vw, 0.95rem);
+  }
+
+  /* Títulos concretos que aparecen en paneles de configuración */
+  .container h3.text-center,
+  .tituloPerfilUsuario {
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
+  }
+
+  /* Reducir márgenes de encabezados para que no ocupen tanto espacio vertical */
+  #seccionDinamica h1,
+  #seccionDinamica h2,
+  #seccionDinamica h3 {
+    margin-top: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Ajuste adicional para el navbar cuando se vuelve sticky en móvil */
+  #navSecciones .nav-link {
+    font-size: 0.9rem;
+  }
+}
+
+/* Correcciones adicionales para que el detalle de auditoría ocupe todo el ancho en móvil */
+@media (max-width: 576px) {
+  /* Asegurar que el contenedor de la tabla no limite el ancho del detalle */
+  .table-responsive {
+    position: relative;
+  }
+
+  /* Forzar que el resumen y el detalle se muestren como bloques independientes
+     y que el detalle use el ancho de la ventana para que no quede comprimido */
+  #tablaAuditoria td .audit-summary,
+  #tablaAuditoria td .audit-full {
+    display: block;
+    width: calc(100vw - 1.5rem);
+    box-sizing: border-box;
+    margin-left: -0.75rem; /* compensa el padding del contenedor */
+    padding: 0.375rem 0.75rem;
+  }
+
+  /* Estética del panel de detalle */
+  #tablaAuditoria td .audit-full {
+    background: #fff;
+    color: #111;
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: 9999;
+  }
+
+  /* Asegurar que el enlace quede alineado y sea fácil de tocar */
+  #tablaAuditoria td .audit-summary a.audit-toggle {
+    width: 100%;
+    display: inline-block;
+  }
+}

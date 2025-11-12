@@ -1,0 +1,188 @@
+<script src="js/scriptConfiguracionArtista.js"></script>
+
+<!--Cabecera con imagen de fondo-->
+<div id="cabeceraConfiguracionArtista"
+    class="cabeceraSecciones d-flex align-items-center justify-content-center text-center">
+    <h1>Configuración</h1>
+</div>
+
+<div id="contenidoConfiguracion" class="container mt-5 mb-5 bg-light rounded">
+    <div class="d-flex justify-content-between py-3 px-3">
+        <h3 class="mb-4">Tus obras</h3>
+        <button id="addObra" class="btnAnadir mt-4 mb-4"><i class="bi bi-plus"></i>Añadir nueva obra</button>
+    </div>
+    <div id="listaObras" class="row g-4">
+        <!-- Aquí se generarán dinámicamente las obras -->
+    </div>
+    
+</div>
+
+<!-- Modal para modificar una obra -->
+<div class="modal fade" id="modalModificarObra" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="d-flex flex-row flex-wrap justify-content-center align-content-center ms-5">
+                    <img src="images/Logos/ambularte-favicon.svg" class="d-inline-block p-0 m-auto" alt="logo Ambularte" height="32">
+                    <h2 class="fs-2 ms-2 p-0">Modificar obra</h2>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <div class="modal-body mx-auto w-75">
+                <form id="formModificarObra">
+                    <!-- Nombre de la obra -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nombreObraModificar" name="nombreObra" required aria-required="true" placeholder="Nombre de la obra">
+                        <label for="nombreObraModificar">Nombre de la obra</label>
+                    </div>
+
+                    <!-- Año de creación -->
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="anioObraModificar" name="anioObra" required aria-required="true" placeholder="Año de creación">
+                        <label for="anioObraModificar">Año de creación</label>
+                    </div>
+
+                    <!-- Tipo de obra -->
+                    <div class="mb-3">
+                        <label for="selectTipoObraModificar" class="form-label">Tipo de obra</label>
+                        <select id="selectTipoObraModificar" name="tipoObra" class="form-select" required>
+                            <option value="" disabled selected>Elige una opción</option>
+                            <option value="pintura">Pintura</option>
+                            <option value="escultura">Escultura</option>
+                            <option value="dibujo">Dibujo</option>
+                            <option value="fotografia">Fotografía</option>
+                        </select>
+                    </div>
+
+                    <!-- Técnica -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="tecnicaObraModificar" name="tecnicaObra" required aria-required="true" placeholder="Técnica">
+                        <label for="tecnicaObraModificar">Técnica</label>
+                    </div>
+
+                    <!-- Dimensiones -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="dimensionesObraModificar" name="dimensionesObra" required aria-required="true" placeholder="Dimensiones">
+                        <label for="dimensionesObraModificar">Dimensiones</label>
+                    </div>
+
+                    <!-- Precio de venta -->
+                    <div class="form-floating mb-3">
+                        <input type="number" step="0.01" class="form-control" id="precioVentaModificar" name="precioVenta" required aria-required="true" placeholder="Precio de venta">
+                        <label for="precioVentaModificar">Precio de venta</label>
+                    </div>
+
+                    <!-- Categoría -->
+                    <div class="mb-3">
+                        <label for="selectCategoriaModificarObra" class="form-label">Categoría</label>
+                        <select id="selectCategoriaModificarObra" name="categoria" class="form-select" required>
+                            <option value="" disabled selected>Elige una opción</option>
+                            <option value="1">Abstracto</option>
+                            <option value="2">Urbano</option>
+                            <option value="3">Realismo</option>
+                            <option value="4">Minimalismo</option>
+                            <option value="5">Dadaísmo</option>
+                            <option value="6">Conceptual</option>
+                        </select>
+                    </div>
+
+                    <!-- Imagen de la obra -->
+                    <div class="mb-3">
+                        <label for="imagenObraModificar" class="form-label">Imagen de la obra</label>
+                        <input type="file" class="form-control" id="imagenObraModificar" name="imagenObra">
+                    </div>
+
+                    <!-- Alert para errores -->
+                    <div class="alert alertaError visually-hidden errorModificarObra" role="alert"></div>
+
+                    <!-- Botón para guardar cambios -->
+                    <button class="mx-0 w-50 btn btn-outline-secondary" id="botonModificarObra" type="submit">Guardar cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para añadir una nueva obra -->
+<div class="modal fade" id="modalAddObra" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="d-flex flex-row flex-wrap justify-content-center align-content-center ms-5">
+                    <img src="images/Logos/ambularte-favicon.svg" class="d-inline-block p-0 m-auto" alt="logo Ambularte" height="32">
+                    <h2 class="fs-2 ms-2 p-0">Añadir nueva obra</h2>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <div class="modal-body mx-auto w-75">
+                <form id="formAddObra" enctype="multipart/form-data">
+                    <!-- Nombre de la obra -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nombreObra" name="nombreObra" required placeholder="Nombre de la obra">
+                        <label for="nombreObra">Nombre de la obra</label>
+                    </div>
+                
+                    <!-- Año de creación -->
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="anioObra" name="anioObra" required placeholder="Año de creación">
+                        <label for="anioObra">Año de creación</label>
+                    </div>
+                
+                    <!-- Tipo de obra -->
+                    <div class="mb-3">
+                        <label for="selectTipoObra" class="form-label">Tipo de obra</label>
+                        <select id="selectTipoObra" name="tipoObra" class="form-select" required>
+                            <option value="pintura">Pintura</option>
+                            <option value="escultura">Escultura</option>
+                            <option value="dibujo">Dibujo</option>
+                            <option value="fotografia">Fotografía</option>
+                        </select>
+                    </div>
+                
+                    <!-- Técnica -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="tecnicaObra" name="tecnicaObra" required placeholder="Técnica">
+                        <label for="tecnicaObra">Técnica</label>
+                    </div>
+                
+                    <!-- Dimensiones -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="dimensionesObra" name="dimensionesObra" required placeholder="Dimensiones">
+                        <label for="dimensionesObra">Dimensiones</label>
+                    </div>
+                
+                    <!-- Precio de venta -->
+                    <div class="form-floating mb-3">
+                        <input type="number" step="0.01" class="form-control" id="precioVenta" name="precioVenta" required placeholder="Precio de venta">
+                        <label for="precioVenta">Precio de venta</label>
+                    </div>
+                
+                    <!-- Categoría -->
+                    <div class="mb-3">
+                        <label for="selectCategoriaAddObra" class="form-label">Categoría</label>
+                        <select id="selectCategoriaAddObra" name="idCategoria" class="form-select" required>
+                            <option value="1">Abstracto</option>
+                            <option value="2">Urbano</option>
+                            <option value="3">Realismo</option>
+                            <option value="4">Minimalismo</option>
+                            <option value="5">Dadaísmo</option>
+                            <option value="6">Conceptual</option>
+                        </select>
+                    </div>
+                
+                    <!-- Imagen -->
+                    <div class="mb-3">
+                        <label for="imagenObra" class="form-label">Imagen de la obra</label>
+                        <input type="file" class="form-control" id="imagenObra" name="imagenObra" accept="image/*" required>
+                    </div>
+
+                
+                    <!-- Botón para añadir la obra -->
+                    <button type="submit" class="btn btn-outline-secondary">Añadir obra</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
